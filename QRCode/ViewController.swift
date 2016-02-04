@@ -17,12 +17,14 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var cancelButton: UIButton!
+  @IBOutlet weak var openButton: UIButton!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
     cancelButton.hidden = true
     label.hidden = true
-    
+    openButton.hidden = true
     
   }
 
@@ -36,6 +38,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     cancelButton.hidden = false
     label.hidden = false
+    openButton.hidden = false
     
     let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
     var error: NSError?
@@ -74,13 +77,13 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     view.bringSubviewToFront(cancelButton)
     view.bringSubviewToFront(label)
+    view.bringSubviewToFront(openButton)
     
     qrCodeFrameView = UIView()
     qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
     qrCodeFrameView?.layer.borderWidth = 2
     view.addSubview(qrCodeFrameView!)
     view.bringSubviewToFront(qrCodeFrameView!)
-    
     
   }
   
@@ -103,14 +106,13 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         
       }
     }
-    
-    
   }
   
   @IBAction func cancel(sender: AnyObject) {
     
     cancelButton.hidden = true
     label.hidden = true
+    cancelButton.hidden = true
     
     captureSession?.stopRunning()
     qrCodeFrameView?.removeFromSuperview()
@@ -119,5 +121,17 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
   }
 
+  @IBAction func openURL(sender: AnyObject) {
+    
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    if segue.identifier == "passData" {
+      let webviewController = segue.destinationViewController as! WebViewController
+      webviewController.qrLink = self.label.text!
+      
+    }
+  }
 }
 

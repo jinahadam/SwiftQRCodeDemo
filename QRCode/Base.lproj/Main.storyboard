@@ -34,6 +34,15 @@
                                     <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="djh-dH-RWY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiP-YE-Je2">
+                                <rect key="frame" x="0.0" y="473" width="600" height="30"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Open URL"/>
+                                <connections>
+                                    <action selector="openURL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="02z-gb-gFv"/>
+                                    <segue destination="9Kh-b9-rjs" kind="show" identifier="passData" id="Dsz-du-4P0"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rc5-qe-HqI" userLabel="label">
                                 <rect key="frame" x="0.0" y="511" width="600" height="31"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,22 +59,104 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="H0V-0m-Uis" secondAttribute="bottom" constant="20" id="3Ph-YB-VTp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="o05-wn-OTD" secondAttribute="trailing" constant="-20" id="8Av-PF-Y11"/>
                             <constraint firstItem="Rc5-qe-HqI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="IOA-2N-oYl"/>
+                            <constraint firstItem="ZiP-YE-Je2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="LF9-ax-bkh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="H0V-0m-Uis" secondAttribute="trailing" constant="-20" id="PfD-JC-hsm"/>
                             <constraint firstItem="o05-wn-OTD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="R0N-Hv-nqD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rc5-qe-HqI" secondAttribute="trailing" constant="-20" id="TtG-i3-wTu"/>
                             <constraint firstItem="H0V-0m-Uis" firstAttribute="top" secondItem="Rc5-qe-HqI" secondAttribute="bottom" constant="8" id="Txm-lG-CyF"/>
+                            <constraint firstItem="Rc5-qe-HqI" firstAttribute="top" secondItem="ZiP-YE-Je2" secondAttribute="bottom" constant="8" id="Vjf-4m-Es5"/>
                             <constraint firstItem="H0V-0m-Uis" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cHV-pH-ZrV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZiP-YE-Je2" secondAttribute="trailing" constant="-20" id="y1f-S3-8gt"/>
                             <constraint firstItem="o05-wn-OTD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ykx-WQ-7qE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="H0V-0m-Uis" id="OHx-vO-wd1"/>
                         <outlet property="label" destination="Rc5-qe-HqI" id="e2t-Nw-l6i"/>
+                        <outlet property="openButton" destination="ZiP-YE-Je2" id="Rbe-Ri-TTK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="311" y="389"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="O81-lP-qLz">
+            <objects>
+                <viewController id="9Kh-b9-rjs" customClass="WebViewController" customModule="QRCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZAZ-K4-oLx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Su3-c1-ISi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pbc-99-ZPA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9u-mb-dRv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="wE4-Qm-a7c">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="nqS-CI-WU1">
+                                            <connections>
+                                                <action selector="goback:" destination="9Kh-b9-rjs" id="ucs-B2-pk3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvC-39-RIH">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="stop" id="FPp-ej-ITp">
+                                        <connections>
+                                            <action selector="stopLoading" destination="hwT-lo-JfG" id="pyW-9Q-m8X"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="refresh" id="b8T-gs-whi">
+                                        <connections>
+                                            <action selector="reload" destination="hwT-lo-JfG" id="FNg-6F-0dF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oEL-DD-NEG"/>
+                                    <barButtonItem systemItem="rewind" id="ht9-K9-KG9">
+                                        <connections>
+                                            <action selector="goBack" destination="hwT-lo-JfG" id="VvB-TI-yey"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="fastForward" id="KuQ-OI-aWV">
+                                        <connections>
+                                            <action selector="goForward" destination="hwT-lo-JfG" id="fa6-Qc-KWo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwT-lo-JfG">
+                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YvC-39-RIH" firstAttribute="leading" secondItem="Pbc-99-ZPA" secondAttribute="leadingMargin" constant="-20" id="5FR-Hm-J7S"/>
+                            <constraint firstItem="d9u-mb-dRv" firstAttribute="top" secondItem="ZAZ-K4-oLx" secondAttribute="bottom" constant="-20" id="87Y-ON-IST"/>
+                            <constraint firstItem="YvC-39-RIH" firstAttribute="top" secondItem="hwT-lo-JfG" secondAttribute="bottom" id="EvZ-ES-8Ru"/>
+                            <constraint firstItem="hwT-lo-JfG" firstAttribute="leading" secondItem="Pbc-99-ZPA" secondAttribute="leadingMargin" constant="-20" id="Flk-4n-7Ka"/>
+                            <constraint firstItem="Su3-c1-ISi" firstAttribute="top" secondItem="YvC-39-RIH" secondAttribute="bottom" id="QHF-YA-OcW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YvC-39-RIH" secondAttribute="trailing" constant="-20" id="cGT-Or-aRy"/>
+                            <constraint firstItem="d9u-mb-dRv" firstAttribute="leading" secondItem="Pbc-99-ZPA" secondAttribute="leadingMargin" constant="-20" id="kRa-OL-FVa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d9u-mb-dRv" secondAttribute="trailing" constant="-20" id="pKq-m5-heH"/>
+                            <constraint firstItem="hwT-lo-JfG" firstAttribute="top" secondItem="d9u-mb-dRv" secondAttribute="bottom" id="x2I-aF-fjE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hwT-lo-JfG" secondAttribute="trailing" constant="-20" id="xKw-0c-HNr"/>
+                            <constraint firstItem="hwT-lo-JfG" firstAttribute="leading" secondItem="YvC-39-RIH" secondAttribute="trailing" constant="-600" id="xLO-TU-bSd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webview" destination="hwT-lo-JfG" id="C7x-fR-xu5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BWY-fo-BAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="427"/>
         </scene>
     </scenes>
 </document>

@@ -13,6 +13,7 @@
 		80E861AE1C634E88000EE600 /* QRCode.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80E861AC1C634E88000EE600 /* QRCode.xcdatamodeld */; };
 		80E861B01C634E88000EE600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E861AF1C634E88000EE600 /* Assets.xcassets */; };
 		80E861B31C634E88000EE600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E861B11C634E88000EE600 /* LaunchScreen.storyboard */; };
+		80E861BB1C6398C9000EE600 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E861BA1C6398C9000EE600 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		80E861AF1C634E88000EE600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80E861B21C634E88000EE600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80E861B41C634E88000EE600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80E861BA1C6398C9000EE600 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ../WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		80E861A41C634E88000EE600 /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
+				80E861BA1C6398C9000EE600 /* WebViewController.swift */,
 				80E861A51C634E88000EE600 /* AppDelegate.swift */,
 				80E861A71C634E88000EE600 /* ViewController.swift */,
 				80E861A91C634E88000EE600 /* Main.storyboard */,
@@ -141,6 +144,7 @@
 				80E861A81C634E88000EE600 /* ViewController.swift in Sources */,
 				80E861AE1C634E88000EE600 /* QRCode.xcdatamodeld in Sources */,
 				80E861A61C634E88000EE600 /* AppDelegate.swift in Sources */,
+				80E861BB1C6398C9000EE600 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
