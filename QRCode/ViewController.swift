@@ -16,9 +16,14 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
   var qrCodeFrameView:UIView?
 
   @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var cancelButton: UIButton!
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+
+    cancelButton.hidden = true
+    label.hidden = true
+    
+    
   }
 
   override func didReceiveMemoryWarning() {
@@ -28,10 +33,12 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
   @IBAction func scanMe(sender: AnyObject) {
     
+    
+    cancelButton.hidden = false
+    label.hidden = false
+    
     let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-    
     var error: NSError?
-    
     let input: AnyObject!
     
     do {
@@ -65,6 +72,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     captureSession?.startRunning()
     
+    view.bringSubviewToFront(cancelButton)
     view.bringSubviewToFront(label)
     
     qrCodeFrameView = UIView()
@@ -91,12 +99,25 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
       
       if metadataObject.stringValue != nil {
         label.text = metadataObject.stringValue
+        captureSession?.stopRunning()
+        
       }
     }
     
     
   }
   
+  @IBAction func cancel(sender: AnyObject) {
+    
+    cancelButton.hidden = true
+    label.hidden = true
+    
+    captureSession?.stopRunning()
+    qrCodeFrameView?.removeFromSuperview()
+    videoPreviewLayer?.removeFromSuperlayer()
+    
+    
+  }
 
 }
 

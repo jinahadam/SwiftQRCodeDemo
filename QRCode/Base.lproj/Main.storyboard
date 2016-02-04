@@ -26,9 +26,20 @@
                                     <action selector="scanMe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="evl-br-4mn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rc5-qe-HqI">
-                                <rect key="frame" x="20" y="463" width="560" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0V-0m-Uis">
+                                <rect key="frame" x="0.0" y="550" width="600" height="30"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="djh-dH-RWY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rc5-qe-HqI" userLabel="label">
+                                <rect key="frame" x="0.0" y="511" width="600" height="31"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="brA-pO-JEx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,15 +47,19 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="H0V-0m-Uis" secondAttribute="bottom" constant="20" id="3Ph-YB-VTp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="o05-wn-OTD" secondAttribute="trailing" constant="-20" id="8Av-PF-Y11"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rc5-qe-HqI" secondAttribute="bottom" constant="106" id="Hie-5I-ZMs"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Rc5-qe-HqI" secondAttribute="leading" id="KrQ-yr-sXn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Rc5-qe-HqI" secondAttribute="trailing" id="PM7-8s-Qcx"/>
+                            <constraint firstItem="Rc5-qe-HqI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="IOA-2N-oYl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H0V-0m-Uis" secondAttribute="trailing" constant="-20" id="PfD-JC-hsm"/>
                             <constraint firstItem="o05-wn-OTD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="R0N-Hv-nqD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rc5-qe-HqI" secondAttribute="trailing" constant="-20" id="TtG-i3-wTu"/>
+                            <constraint firstItem="H0V-0m-Uis" firstAttribute="top" secondItem="Rc5-qe-HqI" secondAttribute="bottom" constant="8" id="Txm-lG-CyF"/>
+                            <constraint firstItem="H0V-0m-Uis" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="cHV-pH-ZrV"/>
                             <constraint firstItem="o05-wn-OTD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ykx-WQ-7qE"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="H0V-0m-Uis" id="OHx-vO-wd1"/>
                         <outlet property="label" destination="Rc5-qe-HqI" id="e2t-Nw-l6i"/>
                     </connections>
                 </viewController>
